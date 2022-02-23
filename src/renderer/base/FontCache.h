@@ -5,7 +5,7 @@
 
 #include <dwrite_3.h>
 
-namespace Microsoft::Console::Render::Atlas::FontCache
+namespace Microsoft::Console::Render::FontCache
 {
     namespace details
     {
@@ -108,8 +108,13 @@ namespace Microsoft::Console::Render::Atlas::FontCache
         details::cache.Invalidate();
     }
 
-    inline wil::com_ptr<IDWriteFontCollection> Get(bool forceUpdate = false)
+    inline wil::com_ptr<IDWriteFontCollection> GetCached()
     {
-        return details::cache.Get(forceUpdate);
+        return details::cache.Get(false);
+    }
+
+    inline wil::com_ptr<IDWriteFontCollection> GetFresh()
+    {
+        return details::cache.Get(true);
     }
 }

@@ -7,7 +7,7 @@
 #include <unicode.hpp>
 #include <VersionHelpers.h>
 
-#include "../atlas/FontCache.h"
+#include "../base/FontCache.h"
 
 static constexpr std::wstring_view FALLBACK_FONT_FACES[] = { L"Consolas", L"Lucida Console", L"Courier New" };
 
@@ -339,7 +339,7 @@ void DxFontInfo::SetFromEngine(const std::wstring_view familyName,
 {
     if (!_nearbyCollection)
     {
-        _nearbyCollection = Atlas::FontCache::Get();
+        _nearbyCollection = FontCache::GetCached();
     }
 
     return _nearbyCollection.get();

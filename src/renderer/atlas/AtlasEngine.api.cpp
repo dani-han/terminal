@@ -4,7 +4,7 @@
 #include "pch.h"
 #include "AtlasEngine.h"
 
-#include "FontCache.h"
+#include "../base/FontCache.h"
 
 // #### NOTE ####
 // If you see any code in here that contains "_r." you might be seeing a race condition.
@@ -559,7 +559,7 @@ void AtlasEngine::_resolveFontMetrics(const wchar_t* requestedFaceName, const Fo
         requestedWeight = DWRITE_FONT_WEIGHT_NORMAL;
     }
 
-    const auto fontCollection = Atlas::FontCache::Get();
+    const auto fontCollection = FontCache::GetCached();
 
     u32 index = 0;
     BOOL exists = false;

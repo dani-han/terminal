@@ -8,7 +8,7 @@
 
 #include <LibraryResources.h>
 #include "../WinRTUtils/inc/Utils.h"
-#include "../../renderer/atlas/FontCache.h"
+#include "../../renderer/base/FontCache.h"
 
 using namespace winrt::Windows::UI::Text;
 using namespace winrt::Windows::UI::Xaml;
@@ -120,7 +120,7 @@ namespace winrt::Microsoft::Terminal::Settings::Editor::implementation
         std::vector<Editor::Font> monospaceFontList;
 
         // get the font collection; subscribe to updates
-        const auto fontCollection = ::Microsoft::Console::Render::Atlas::FontCache::Get(true);
+        const auto fontCollection = ::Microsoft::Console::Render::FontCache::GetFresh();
 
         for (UINT32 i = 0; i < fontCollection->GetFontFamilyCount(); ++i)
         {

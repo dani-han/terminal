@@ -11,7 +11,7 @@
 #include <wil/token_helpers.h>
 
 #include "../inc/WindowingBehavior.h"
-#include "../../renderer/atlas/FontCache.h"
+#include "../../renderer/base/FontCache.h"
 #include "../../types/inc/utils.hpp"
 
 using namespace winrt::Windows::ApplicationModel;
@@ -1065,7 +1065,7 @@ namespace winrt::TerminalApp::implementation
         _ApplyStartupTaskStateChange();
 
         Jumplist::UpdateJumplist(_settings);
-        ::Microsoft::Console::Render::Atlas::FontCache::Invalidate();
+        ::Microsoft::Console::Render::FontCache::Invalidate();
 
         _SettingsChangedHandlers(*this, nullptr);
     }

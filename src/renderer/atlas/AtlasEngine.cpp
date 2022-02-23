@@ -7,7 +7,7 @@
 #include <shader_ps.h>
 #include <shader_vs.h>
 
-#include "FontCache.h"
+#include "../base/FontCache.h"
 #include "../../interactivity/win32/CustomWindowMessages.h"
 
 // #### NOTE ####
@@ -1016,7 +1016,7 @@ void AtlasEngine::_recreateFontDependentResources()
             }
         });
 
-        const auto fontCollection = Atlas::FontCache::Get();
+        const auto fontCollection = FontCache::GetCached();
 
         for (auto italic = 0; italic < 2; ++italic)
         {
