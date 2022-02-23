@@ -9,6 +9,7 @@
 #include <array>
 #include <filesystem>
 #include <optional>
+#include <shared_mutex>
 #include <sstream>
 #include <string_view>
 #include <thread>

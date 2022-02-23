@@ -3,15 +3,15 @@
 
 #include "pch.h"
 #include "AppLogic.h"
-#include "../inc/WindowingBehavior.h"
 #include "AppLogic.g.cpp"
 #include "FindTargetWindowResult.g.cpp"
-#include <winrt/Microsoft.UI.Xaml.XamlTypeInfo.h>
 
 #include <LibraryResources.h>
 #include <WtExeUtils.h>
-#include <wil/token_helpers.h >
+#include <wil/token_helpers.h>
 
+#include "../inc/WindowingBehavior.h"
+#include "../../renderer/atlas/FontCache.h"
 #include "../../types/inc/utils.hpp"
 
 using namespace winrt::Windows::ApplicationModel;
@@ -1065,6 +1065,7 @@ namespace winrt::TerminalApp::implementation
         _ApplyStartupTaskStateChange();
 
         Jumplist::UpdateJumplist(_settings);
+        ::Microsoft::Console::Render::Atlas::FontCache::Invalidate();
 
         _SettingsChangedHandlers(*this, nullptr);
     }

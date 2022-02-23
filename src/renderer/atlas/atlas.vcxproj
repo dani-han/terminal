@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dwrite.h" />
+    <ClInclude Include="FontCache.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="AtlasEngine.h" />
   </ItemGroup>
